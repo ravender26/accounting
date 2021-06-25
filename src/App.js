@@ -1,10 +1,11 @@
-import './App.css';
+import Dashboard from './components/Dashboard';
+import Layout from './components/Layout/index';
 
 function App() {
   return (
-    <div className="App">
-     <h1>accounting</h1>
-    </div>
+    <Layout>
+     <Dashboard />
+     </Layout>
   );
 }
 
