@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,10 +8,9 @@ import {
   Typography,
   Button,
 } from "@material-ui/core";
-import { addClientAction } from "../../redux/actions/clients";
 import FormModal from "./../common/FormModal";
-import AddClientForm from "./AddClientForm";
-import { Link } from "react-router-dom";
+import AddTaskForm from "./AddTaskForm";
+import { addTaskAction } from "../../redux/actions/tasks";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -25,11 +23,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CreateNewClient = () => {
+const CreateNewTask = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const clients = useSelector((state) => state.clients);
-  console.log(clients);
+  const { tasks, projects } = useSelector((state) => state);
+
   const dispatch = useDispatch();
 
   const handleClickOpen = () => {
@@ -40,16 +38,15 @@ const CreateNewClient = () => {
     setOpen(false);
   };
 
-  const SubmitClientData = (data) => {
+  const SubmitTaskData = (data) => {
     handleClose();
-    dispatch(addClientAction(data));
+    dispatch(addTaskAction(data));
   };
-
   return (
     <Container fixed className={classes.wrapper}>
       <Box paddingY={4}>
         <Typography gutterBottom variant="h5">
-          Clients List
+          Tasks List
         </Typography>
         <Box marginBottom={5} marginTop={3}>
           <Button
@@ -61,11 +58,10 @@ const CreateNewClient = () => {
           >
             +Add
           </Button>
-          <Link to="/add-project">next</Link>
         </Box>
-        {!!clients.length && (
+        {!!tasks.length && (
           <Box>
-            {clients.map((item) => (
+            {tasks.map((item) => (
               <Card key={item.id} className={classes.card} variant="outlined">
                 <Box paddingY={1} paddingX={3}>
                   <Typography variant="h6">{item.name}</Typography>
@@ -76,12 +72,12 @@ const CreateNewClient = () => {
         )}
       </Box>
       {open && (
-        <FormModal title="Add New Client" open={open} handleClose={handleClose}>
-          <AddClientForm SubmitClientData={SubmitClientData} />
+        <FormModal title="Add New Task" open={open} handleClose={handleClose}>
+          <AddTaskForm projects={projects} SubmitTaskData={SubmitTaskData} />
         </FormModal>
       )}
     </Container>
   );
 };
 
-export default CreateNewClient;
+export default CreateNewTask;
