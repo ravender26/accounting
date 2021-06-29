@@ -11,6 +11,7 @@ import {
 import FormModal from "./../common/FormModal";
 import AddTaskForm from "./AddTaskForm";
 import { addTaskAction } from "../../redux/actions/tasks";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -58,6 +59,9 @@ const CreateNewTask = () => {
           >
             +Add
           </Button>
+          <div>
+            <Link to="/add-project">projects</Link>
+          </div>
         </Box>
         {!!tasks.length && (
           <Box>
