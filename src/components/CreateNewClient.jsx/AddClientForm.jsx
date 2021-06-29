@@ -1,12 +1,13 @@
 import React from "react";
 import { Box, TextField, Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
+import { generateId } from "../../utils/common";
 
 const AddClientForm = ({ SubmitClientData }) => {
   const { register, handleSubmit } = useForm();
 
   const submitData = (data) => {
-    SubmitClientData(data);
+    SubmitClientData({ ...data, ...generateId("client") });
   };
   return (
     <form onSubmit={handleSubmit(submitData)}>

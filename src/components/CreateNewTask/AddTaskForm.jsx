@@ -1,12 +1,13 @@
 import React from "react";
 import { Box, TextField, Button, MenuItem } from "@material-ui/core";
 import { useForm } from "react-hook-form";
+import { generateId } from "../../utils/common";
 
 const AddTaskForm = ({ SubmitTaskData, projects }) => {
   const { register, handleSubmit } = useForm();
 
   const submitData = (data) => {
-    SubmitTaskData(data);
+    SubmitTaskData({ ...data, ...generateId("task") });
   };
   return (
     <form onSubmit={handleSubmit(submitData)}>
@@ -20,7 +21,7 @@ const AddTaskForm = ({ SubmitTaskData, projects }) => {
       >
         {projects.length ? (
           projects.map((item) => (
-            <MenuItem value={item.name}>{item.name}</MenuItem>
+            <MenuItem value={item.id}>{item.name}</MenuItem>
           ))
         ) : (
           <MenuItem value="">Not Available</MenuItem>

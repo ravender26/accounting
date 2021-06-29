@@ -1,12 +1,13 @@
 import React from "react";
 import { Box, TextField, Button, MenuItem } from "@material-ui/core";
 import { useForm } from "react-hook-form";
+import { generateId } from "../../utils/common";
 
 const AddProjectForm = ({ SubmitProjectData, clients }) => {
   const { register, handleSubmit } = useForm();
 
   const submitData = (data) => {
-    SubmitProjectData(data);
+    SubmitProjectData({ ...data, ...generateId("project") });
   };
   return (
     <form onSubmit={handleSubmit(submitData)}>
@@ -20,7 +21,7 @@ const AddProjectForm = ({ SubmitProjectData, clients }) => {
       >
         {clients.length ? (
           clients.map((item) => (
-            <MenuItem value={item.name}>{item.name}</MenuItem>
+            <MenuItem value={item.id}>{item.name}</MenuItem>
           ))
         ) : (
           <MenuItem value="">Not Available</MenuItem>
