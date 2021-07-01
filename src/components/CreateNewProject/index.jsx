@@ -58,7 +58,12 @@ const CreateNewProject = () => {
           >
             +Add
           </Button>
-          <Link to="/add-task">next</Link>
+          <div>
+            <Link to="/add-task">tasks</Link>
+          </div>
+          <div>
+            <Link to="/add-client">clients</Link>
+          </div>
         </Box>
         {!!projects.length && (
           <Box>

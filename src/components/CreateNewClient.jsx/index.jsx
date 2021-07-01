@@ -13,6 +13,9 @@ import { addClientAction } from "../../redux/actions/clients";
 import FormModal from "./../common/FormModal";
 import AddClientForm from "./AddClientForm";
 import { Link } from "react-router-dom";
+import { Grid } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
+import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -20,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
   },
   card: {
-    marginBottom: "20px",
-    width: "35%",
+    // marginBottom: "20px",
+    // width: "35%",
   },
 }));
 
@@ -61,18 +64,26 @@ const CreateNewClient = () => {
           >
             +Add
           </Button>
-          <Link to="/add-project">next</Link>
+          <div>
+            <Link to="/add-project">projects</Link>
+          </div>
+          <div>
+            <Link to="/">dashboard</Link>
+          </div>
         </Box>
         {!!clients.length && (
-          <Box>
+          <Grid container spacing={2}>
             {clients.map((item) => (
-              <Card key={item.id} className={classes.card} variant="outlined">
-                <Box paddingY={1} paddingX={3}>
-                  <Typography variant="h6">{item.name}</Typography>
-                </Box>
-              </Card>
+              <Grid item xs={6} sm={4} md={3} key={item.id}>
+                <Paper>
+                  <Box paddingY={2} paddingX={3}>
+                    <AccountCircleOutlinedIcon />
+                    <Typography variant="h6">{item.name}</Typography>
+                  </Box>
+                </Paper>
+              </Grid>
             ))}
-          </Box>
+          </Grid>
         )}
       </Box>
       {open && (
