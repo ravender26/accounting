@@ -1,6 +1,8 @@
 import { Paper, Box, Typography, makeStyles } from '@material-ui/core'
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import CallMadeIcon from '@material-ui/icons/CallMade';     
+import CallMadeIcon from '@material-ui/icons/CallMade'; 
+import Grid from '@material-ui/core/Grid';
+
 import React from 'react'
 import { Bar } from 'react-chartjs-2';
 
@@ -50,7 +52,8 @@ function Accounting() {
         <Paper>
             <Box p={1} >
                 <div className={classes.flexWrap}>
-                <div>
+                    <Grid container spacing={3}>
+               <Grid item sm={6} xs={12}>
                 <Typography variant="h5">
                 <strong>Accounting</strong>
                 </Typography>
@@ -67,10 +70,12 @@ function Accounting() {
                <span style={{color:'#5F997A'}}>  <CallMadeIcon style={{fontSize:'15px',}}/>3.89%</span> vs $596.696 prev. 90days
                 </Typography>
              
-            </div>
-            <div>
+                </Grid>
+
+            <Grid item sm={6} xs={12}   >
                 <Bar data={data} />
-            </div>
+                </Grid>
+                </Grid>
                 </div>
                 <hr />
                 <div className={classes.flexWrap}>
