@@ -2,6 +2,7 @@ import { Paper, Box, Typography, makeStyles } from '@material-ui/core'
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import CallMadeIcon from '@material-ui/icons/CallMade'; 
 import Grid from '@material-ui/core/Grid';
+import { Button } from '@material-ui/core';
 
 import React from 'react'
 import { Bar } from 'react-chartjs-2';
@@ -52,8 +53,8 @@ function Accounting() {
         <Paper>
             <Box p={1} >
                 <div className={classes.flexWrap}>
-                    <Grid container spacing={3}>
-               <Grid item sm={6} xs={12}>
+                    <Grid container spacing={1}>
+                  <Grid item sm={6} xs={12}>
                 <Typography variant="h5">
                 <strong>Accounting</strong>
                 </Typography>
@@ -62,12 +63,13 @@ function Accounting() {
                 </Typography>
                 <Typography variant="subtitle2" style={{marginTop:'20px'}}>
                    AVG. Monthly Income
+                  
                 </Typography>
                 <Typography variant="h4" style={{fontWeight:'bold'}}>
                 $5,849.36
                 </Typography>
                 <Typography variant="subtitle2" style={{marginTop:'10px'}}>
-               <span style={{color:'#5F997A'}}>  <CallMadeIcon style={{fontSize:'15px',}}/>3.89%</span> vs $596.696 prev. 90days
+               <span style={{color:'#5F997A'}}>  <CallMadeIcon style={{fontSize:'15px'}}/>3.89%</span> vs $596.696 prev. 90days
                 </Typography>
              
                 </Grid>
