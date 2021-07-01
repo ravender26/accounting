@@ -3,6 +3,7 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { makeStyles } from "@material-ui/core";
 
+
 const data = {
   labels: ["Occupied", "Vacant", "Maintenance"],
   datasets: [
@@ -26,13 +27,18 @@ const useStyles = makeStyles((theme) => ({
   flexWrap: {
     display: "flex",
     justifyContent: "space-between",
+    
   },
   flexGrow: {
     flexGrow: 1,
   },
   fullHeight:{
     height:'100%'
-}
+},
+ title:{
+  fontWeight:'bold',
+  marginBottom:'25px'
+ },
 }));
 
 const Properties = () => {
@@ -41,8 +47,9 @@ const Properties = () => {
     <Paper className={classes.fullHeight}>
       <Box p={2}>
         <div className={classes.flexWrap}>
-          <Typography variant="h5">Properties</Typography>
-          <Link href="/">All properties</Link>
+          <Typography variant="h5" className={classes.title}>Properties</Typography>
+          <Link href="/">All properties </Link>
+        
         </div>
 
         <div>

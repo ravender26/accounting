@@ -25,6 +25,8 @@ title: {
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
       width: 'auto',
+      borderRadius:'25px',
+      backgroundColor:'#F0F5F5',
     },
   },
   searchIcon: {
@@ -35,9 +37,12 @@ title: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   inputRoot: {
     color: 'inherit',
+    paddingLeft:'50px',
+    paddingRight:'20px'
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),

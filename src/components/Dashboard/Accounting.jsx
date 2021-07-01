@@ -1,4 +1,6 @@
 import { Paper, Box, Typography, makeStyles } from '@material-ui/core'
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import CallMadeIcon from '@material-ui/icons/CallMade';     
 import React from 'react'
 import { Bar } from 'react-chartjs-2';
 
@@ -31,15 +33,22 @@ const data = {
 const useStyles = makeStyles((theme) => ({
     flexWrap:{
         display:'flex',
-        justifyContent:'space-between'
-    }
+     justifyContent:'space-around '
+
+        
+        
+    },
+    priceStyle:{
+      fontWeight:'bold',
+      
+    },
 }));
 
 function Accounting() {
     const classes = useStyles();
     return (
         <Paper>
-            <Box p={2}>
+            <Box p={1} >
                 <div className={classes.flexWrap}>
                 <div>
                 <Typography variant="h5">
@@ -48,14 +57,14 @@ function Accounting() {
                 <Typography color="textSecondary" variant="subtitle2">
                    March 1, 2020 - April 31, 2021
                 </Typography>
-                <Typography variant="subtitle2">
+                <Typography variant="subtitle2" style={{marginTop:'20px'}}>
                    AVG. Monthly Income
                 </Typography>
-                <Typography variant="h5">
+                <Typography variant="h4" style={{fontWeight:'bold'}}>
                 $5,849.36
                 </Typography>
-                <Typography variant="subtitle2">
-                   3.89% vs $596.696 prev. 90days
+                <Typography variant="subtitle2" style={{marginTop:'10px'}}>
+               <span style={{color:'#5F997A'}}>  <CallMadeIcon style={{fontSize:'15px',}}/>3.89%</span> vs $596.696 prev. 90days
                 </Typography>
              
             </div>
@@ -66,16 +75,19 @@ function Accounting() {
                 <hr />
                 <div className={classes.flexWrap}>
                     <div>
-                    <Typography variant="h5">
-                Accounting
+                <Typography variant="h4" className={classes.priceStyle}>
+                <AttachMoneyIcon style={{fontSize:'35px',color:'green', boxShadow:"0 5px 5px -5px",borderRadius:'50px'}}/>        
+                $89,240.38
                 </Typography>
+                
                 <Typography variant="subtitle2">
                    March 1, 2020 - April 31, 2021
                 </Typography>
                     </div>
                     <div>
-                    <Typography variant="h5">
-                Accounting
+                    <Typography variant="h4" className={classes.priceStyle}>
+                    <AttachMoneyIcon style={{fontSize:'35px',color:'red', boxShadow:"0 5px 5px -5px",borderRadius:'50px'}}/>        
+               $16,237.82
                 </Typography>
                 <Typography variant="subtitle2">
                    March 1, 2020 - April 31, 2021

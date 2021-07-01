@@ -1,42 +1,65 @@
 import { IconButton, makeStyles } from "@material-ui/core";
 import React from "react";
-import SmsIcon from "@material-ui/icons/Sms";
+import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
+import SubtitlesOutlinedIcon from '@material-ui/icons/SubtitlesOutlined';
+import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
+import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
+import AssignmentIndOutlinedIcon from '@material-ui/icons/AssignmentIndOutlined';
+import BallotOutlinedIcon from '@material-ui/icons/BallotOutlined';
+import BuildIcon from '@material-ui/icons/Build';
+import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
+import SettingsIcon from '@material-ui/icons/Settings';
+import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
+
 
 const useStyles = makeStyles({
   root: {
-    width: 120,
-    backgroundColor: "#e6e6e6",
+    width: '120px',
+    backgroundColor: "#023C3F",
     padding: "20px 5px",
+    borderRadius:'5px',
+    
+  },
+  buttonStyle:{
+    color:"white",
+    fontSize:'35px',
   },
 });
 
 const LeftBar = () => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <IconButton aria-label="delete">
-        <SmsIcon />
+        <SubtitlesOutlinedIcon className={classes.buttonStyle}/>
+       
       </IconButton>
       <IconButton aria-label="delete">
-        <SmsIcon />
+        <ChatBubbleOutlineOutlinedIcon className={classes.buttonStyle}/>
       </IconButton>
       <IconButton aria-label="delete">
-        <SmsIcon />
+        <AssignmentOutlinedIcon className={classes.buttonStyle}/>
       </IconButton>
       <IconButton aria-label="delete">
-        <SmsIcon />
+        <DateRangeOutlinedIcon className={classes.buttonStyle}/>
       </IconButton>
       <IconButton aria-label="delete">
-        <SmsIcon />
+        <BallotOutlinedIcon className={classes.buttonStyle}/>
       </IconButton>
       <IconButton aria-label="delete">
-        <SmsIcon />
+        <AssignmentIndOutlinedIcon className={classes.buttonStyle}/>
       </IconButton>
       <IconButton aria-label="delete">
-        <SmsIcon />
+        <BuildIcon className={classes.buttonStyle}/>
       </IconButton>
       <IconButton aria-label="delete">
-        <SmsIcon />
+        <PermIdentityOutlinedIcon className={classes.buttonStyle}/>
+      </IconButton>
+      <IconButton>
+      <SettingsIcon className={classes.buttonStyle} />  
+      </IconButton>
+      <IconButton >
+        <DoubleArrowIcon className={classes.buttonStyle}/>
       </IconButton>
     </div>
   );

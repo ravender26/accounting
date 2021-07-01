@@ -1,6 +1,7 @@
 import { Avatar, Badge, Box } from "@material-ui/core";
 import MailIcon from "@material-ui/icons/MailOutline";
-import InboxIcon from "@material-ui/icons/InboxRounded";
+import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
+import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import avatarImg from "../../assets/images/1.jpg";
 import React from "react";
 import { Typography, makeStyles } from "@material-ui/core";
@@ -12,24 +13,30 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   simpleFlex:{
-      display:'flex'
-  }
+      display:'flex',
+      paddingTop:'10px',
+      
+  },
+  iconStyle:{
+       fontSize:'30px',
+       color:"#FF9210",
+  },
 }));
 
 const SectionOne = () => {
   const classes = useStyles();
   return (
-      <Box borderBottom={1} p={2}>
+      <Box borderBottom={1} p={1}>
         <div className={classes.flexWrap}>
           <div className={classes.simpleFlex}>
-            <InboxIcon />
+            <OfflineBoltIcon className={classes.iconStyle}/>
             <Badge badgeContent={4} color="primary">
-              <MailIcon />
+              <NotificationsNoneOutlinedIcon className={classes.iconStyle}/>
             </Badge>
           </div>
           <div className={classes.simpleFlex}>
             <div>
-              <Typography variant="subtitle1">Maurice Robin</Typography>
+              <Typography variant="subtitle1" style={{marginRight:'5px'}}>Maurice Robin</Typography>
               <Typography variant="subtitle2">Manager</Typography>
             </div>
             <Avatar alt="Remy Sharp" src={avatarImg} />
