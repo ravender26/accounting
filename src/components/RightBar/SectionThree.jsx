@@ -4,7 +4,7 @@ import TaskCard from "./TaskCard";
 
 const SectionThree = () => {
   return (
-    <Box borderBottom={1} p={2}>
+    <Box boxShadow={"rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"} p={2}>
       <TaskCard />
       <TaskCard />
       <TaskCard />

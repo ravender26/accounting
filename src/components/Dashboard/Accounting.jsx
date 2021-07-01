@@ -36,7 +36,8 @@ const data = {
 const useStyles = makeStyles((theme) => ({
     flexWrap:{
         display:'flex',
-     justifyContent:'space-around '
+     justifyContent:'space-around ',
+     boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
 
         
         
@@ -81,7 +82,9 @@ function Accounting() {
                 </div>
                 <hr />
                 <div className={classes.flexWrap}>
-                    <div>
+                    
+                    <Grid container spacing={1}>
+                    <Grid item sm={6} xs={12}>
                 <Typography variant="h4" className={classes.priceStyle}>
                 <AttachMoneyIcon style={{fontSize:'35px',color:'green', boxShadow:"0 5px 5px -5px",borderRadius:'50px'}}/>        
                 $89,240.38
@@ -90,7 +93,9 @@ function Accounting() {
                 <Typography variant="subtitle2">
                    March 1, 2020 - April 31, 2021
                 </Typography>
-                    </div>
+                  
+                </Grid>
+                <Grid item sm={6} xs={12}>
                     <div>
                     <Typography variant="h4" className={classes.priceStyle}>
                     <AttachMoneyIcon style={{fontSize:'35px',color:'red', boxShadow:"0 5px 5px -5px",borderRadius:'50px'}}/>        
@@ -100,8 +105,12 @@ function Accounting() {
                    March 1, 2020 - April 31, 2021
                 </Typography>
                     </div>
-                </div>
-        
+                    </Grid>
+
+                  
+                  </Grid>
+                
+              </div>
             
             </Box>
         </Paper>

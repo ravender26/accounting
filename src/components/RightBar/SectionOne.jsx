@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    
   },
   simpleFlex:{
       display:'flex',
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const SectionOne = () => {
   const classes = useStyles();
   return (
-      <Box borderBottom={1} p={1}>
+      <Box  p={1}>
         <div className={classes.flexWrap}>
           <div className={classes.simpleFlex}>
             <OfflineBoltIcon className={classes.iconStyle}/>

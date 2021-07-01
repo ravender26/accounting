@@ -13,11 +13,13 @@ const useStyles = makeStyles((theme) => ({
         boxShadow:"0 5px 5px -5px",
         borderRadius: '15px / 50px',
         
+        
       },
     flexWrap:{
         display:'flex',
         justifyContent:'space-between',
         alignItems:'center',
+        
         
     },
     flexGrow:{
@@ -25,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
     fullHeight:{
         height:'100%',
+        boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
         
     },
     margin:{

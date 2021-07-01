@@ -4,7 +4,9 @@ import React from 'react'
 
 const useStyles = makeStyles((theme) => ({
     justify:{
-        justifyContent:'space-between'
+        justifyContent:'space-between',
+        
+        
     },
 title: {
     display: 'none',

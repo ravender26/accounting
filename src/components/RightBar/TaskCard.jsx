@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
         paddingRight:"30px",
         paddingTop:"5px",
         paddingBottom:"5px",
-        boxShadow:"0 5px 5px -5px",
-    },
+        boxShadow: "rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset"
+        },
     cardStyle:{
         borderRadius:"15p",
         backgroundColor:"white",
