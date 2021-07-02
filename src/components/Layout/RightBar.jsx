@@ -7,7 +7,7 @@ import SectionTwo from "../RightBar/SectionTwo";
 
 const useStyles = makeStyles({
   root: {
-    width: 490,
+    width: 390,
     boxShadow:
       "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset",
   },
@@ -20,7 +20,7 @@ const RightBar = () => {
       <SectionOne />
       <SectionTwo />
       <SectionThree />
-      {/* <SectionFour /> */}
+      <SectionFour />
     </div>
   );
 };

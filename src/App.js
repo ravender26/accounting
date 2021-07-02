@@ -30,13 +30,19 @@ function App() {
               </Layout>
             </Route>
             <Route path="/add-client">
-              <CreateNewClient />
+              <Layout>
+                <CreateNewClient />
+              </Layout>
             </Route>
             <Route path="/add-project">
-              <CreateNewProject />
+              <Layout>
+                <CreateNewProject />
+              </Layout>
             </Route>
             <Route path="/add-task">
-              <CreateNewTask />
+              <Layout>
+                <CreateNewTask />
+              </Layout>
             </Route>
           </Switch>
         </Router>

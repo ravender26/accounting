@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     marginBottom: "30px",
-    
   },
   large: {
     width: theme.spacing(7),
@@ -23,12 +22,7 @@ const Title = () => {
     <div className={classes.root}>
       <Avatar alt="Remy Sharp" src={avatarImg} className={classes.large} />
       <div>
-        <Typography variant="h5">
-          Hi,{" "}
-          <strong>
-            <Link to="/add-client">Maurice</Link>
-          </strong>
-        </Typography>
+        <Typography variant="h5">Hi, Maurice</Typography>
         <Typography variant="subtitle2">
           Here's your activity today, take a moment to have a look at this.
         </Typography>

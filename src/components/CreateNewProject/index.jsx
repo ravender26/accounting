@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
   Card,
-  Container,
+  Grid,
   makeStyles,
   Typography,
   Button,
@@ -11,18 +11,9 @@ import {
 import FormModal from "./../common/FormModal";
 import AddProjectForm from "./AddProjectForm";
 import { addProjectAction } from "../../redux/actions/projects";
-import { Link } from "react-router-dom";
+import Heading from "./../common/Heading";
 
-const useStyles = makeStyles((theme) => ({
-  wrapper: {
-    backgroundColor: theme.palette.background.default,
-    minHeight: "100vh",
-  },
-  card: {
-    marginBottom: "20px",
-    width: "35%",
-  },
-}));
+const useStyles = makeStyles((theme) => ({}));
 
 const CreateNewProject = () => {
   const classes = useStyles();
@@ -43,40 +34,35 @@ const CreateNewProject = () => {
     dispatch(addProjectAction(data));
   };
   return (
-    <Container fixed className={classes.wrapper}>
-      <Box paddingY={4}>
-        <Typography gutterBottom variant="h5">
-          Projects List
-        </Typography>
-        <Box marginBottom={5} marginTop={3}>
-          <Button
-            size="small"
-            variant="contained"
-            color="primary"
-            disableElevation
-            onClick={handleClickOpen}
-          >
-            +Add
-          </Button>
-          <div>
-            <Link to="/add-task">tasks</Link>
-          </div>
-          <div>
-            <Link to="/add-client">clients</Link>
-          </div>
-        </Box>
-        {!!projects.length && (
-          <Box>
-            {projects.map((item) => (
-              <Card key={item.id} className={classes.card} variant="outlined">
+    <Box paddingBottom={3}>
+      <Heading name="Projects List" />
+      <Box marginBottom={5} marginTop={3}>
+        <Button
+          size="small"
+          variant="contained"
+          color="primary"
+          disableElevation
+          onClick={handleClickOpen}
+        >
+          +Add
+        </Button>
+      </Box>
+      {!!projects.length && (
+        <Grid container spacing={2}>
+          {projects.map((item) => (
+            <Grid item sm={12} md={6} key={item.id}>
+              <Card className={classes.card}>
                 <Box paddingY={1} paddingX={3}>
                   <Typography variant="h6">{item.name}</Typography>
+                  <Typography variant="subtitle1">
+                    {item.description}
+                  </Typography>
                 </Box>
               </Card>
-            ))}
-          </Box>
-        )}
-      </Box>
+            </Grid>
+          ))}
+        </Grid>
+      )}
       {open && (
         <FormModal
           title="Add New Project"
@@ -89,7 +75,7 @@ const CreateNewProject = () => {
           />
         </FormModal>
       )}
-    </Container>
+    </Box>
   );
 };
 

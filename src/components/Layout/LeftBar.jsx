@@ -1,63 +1,65 @@
-import { IconButton, makeStyles } from "@material-ui/core";
+import { Box, makeStyles } from "@material-ui/core";
 import React from "react";
-import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
-import SubtitlesOutlinedIcon from "@material-ui/icons/SubtitlesOutlined";
-import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
-import DateRangeOutlinedIcon from "@material-ui/icons/DateRangeOutlined";
-import AssignmentIndOutlinedIcon from "@material-ui/icons/AssignmentIndOutlined";
-import BallotOutlinedIcon from "@material-ui/icons/BallotOutlined";
-import BuildIcon from "@material-ui/icons/Build";
-import PermIdentityOutlinedIcon from "@material-ui/icons/PermIdentityOutlined";
-import SettingsIcon from "@material-ui/icons/Settings";
-import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "120px",
+    width: 200,
     backgroundColor: theme.palette.background.default,
-    padding: "20px 5px",
+    padding: "75px 5px 25px 5px",
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
   },
-  buttonStyle: {
-    // color: "white",
-    fontSize: "25px",
+  navLink: {
+    textDecoration: "none",
+    padding: "4px 8px",
+    margin: "5px 0px",
+    color: theme.palette.text.primary,
+  },
+  selected: {
+    backgroundColor: theme.palette.text.disabled,
+    color: theme.palette.background.default,
   },
 }));
+
+const pages = [
+  {
+    label: "Dashboard",
+    path: "/",
+  },
+  {
+    label: "Clients",
+    path: "/add-client",
+  },
+  {
+    label: "Projects",
+    path: "/add-project",
+  },
+  {
+    label: "Tasks",
+    path: "/add-task",
+  },
+];
 
 const LeftBar = () => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <IconButton aria-label="delete">
-        <SubtitlesOutlinedIcon className={classes.buttonStyle} />
-      </IconButton>
-      <IconButton aria-label="delete">
-        <ChatBubbleOutlineOutlinedIcon className={classes.buttonStyle} />
-      </IconButton>
-      <IconButton aria-label="delete">
-        <AssignmentOutlinedIcon className={classes.buttonStyle} />
-      </IconButton>
-      <IconButton aria-label="delete">
-        <DateRangeOutlinedIcon className={classes.buttonStyle} />
-      </IconButton>
-      <IconButton aria-label="delete">
-        <BallotOutlinedIcon className={classes.buttonStyle} />
-      </IconButton>
-      <IconButton aria-label="delete">
-        <AssignmentIndOutlinedIcon className={classes.buttonStyle} />
-      </IconButton>
-      <IconButton aria-label="delete">
-        <BuildIcon className={classes.buttonStyle} />
-      </IconButton>
-      <IconButton aria-label="delete">
-        <PermIdentityOutlinedIcon className={classes.buttonStyle} />
-      </IconButton>
-      <IconButton>
-        <SettingsIcon className={classes.buttonStyle} />
-      </IconButton>
-      <IconButton>
-        <DoubleArrowIcon className={classes.buttonStyle} />
-      </IconButton>
-    </div>
+    <Box style={{ height: "100vh" }}>
+      <div className={classes.root}>
+        {pages.map((item) => (
+          <NavLink
+            key={item.label}
+            exact
+            activeClassName={classes.selected}
+            className={classes.navLink}
+            to={item.path}
+          >
+            {item.label}
+          </NavLink>
+        ))}
+      </div>
+    </Box>
   );
 };
 

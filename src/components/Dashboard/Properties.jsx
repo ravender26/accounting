@@ -1,8 +1,8 @@
-import { Paper, Box, Typography, Link } from "@material-ui/core";
+import { Paper, Box, Typography } from "@material-ui/core";
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { makeStyles } from "@material-ui/core";
-
+import { Link } from "react-router-dom";
 
 const data = {
   labels: ["Occupied", "Vacant", "Maintenance"],
@@ -27,35 +27,39 @@ const useStyles = makeStyles((theme) => ({
   flexWrap: {
     display: "flex",
     justifyContent: "space-between",
-    
   },
   flexGrow: {
     flexGrow: 1,
   },
-  fullHeight:{
-    height:'100%',
-    boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
-},
- title:{
-  fontWeight:'bold',
-  marginBottom:'25px'
- },
+  fullHeight: {
+    height: "100%",
+  },
+  title: {
+    fontWeight: "bold",
+    marginBottom: "25px",
+  },
+  link: {
+    textDecoration: "none",
+    color: theme.palette.text.secondary,
+  },
 }));
 
 const Properties = () => {
   const classes = useStyles();
   return (
-    <Paper className={classes.fullHeight}>
+    <Paper variant="outlined" className={classes.fullHeight}>
       <Box p={2}>
         <div className={classes.flexWrap}>
-          <Typography variant="h5" className={classes.title}>Properties</Typography>
-          <Link href="/">All properties </Link>
-        
+          <Typography variant="h5" className={classes.title}>
+            Properties
+          </Typography>
+          <Link className={classes.link} to="/">
+            All properties{" "}
+          </Link>
         </div>
-
-        <div>
+        <Box padding={3}>
           <Doughnut height={100} width={100} data={data} />
-        </div>
+        </Box>
       </Box>
     </Paper>
   );

@@ -11,7 +11,7 @@ import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   navbar: {
-    borderBottom: `1px solid #eee`,
+    borderBottom: `2px solid #eee`,
   },
   justify: {
     justifyContent: "space-between",
@@ -76,7 +76,7 @@ const Navbar = () => {
     >
       <Toolbar className={classes.justify}>
         <Typography className={classes.title} variant="h6" noWrap>
-          Dashboard
+          Brand Name
         </Typography>
         <div className={classes.search}>
           <div className={classes.searchIcon}>
